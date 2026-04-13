@@ -42,13 +42,11 @@ O fluxo de trabalho foi estruturado para garantir que o plano de estudos seja te
 
 ## 📂 Estrutura do Repositório
 
-```bash
-├── 📁 prompts/
-│   ├── 📄 agent-1-analyst.md    # Engenharia de prompt para coleta de dados
-│   └── 📄 agent-2-architect.md  # Prompt focado em output de cronograma
-├── 📁 examples/
-│   └── 📄 sample-output.md      # Exemplo de um plano gerado com sucesso
-└── 📄 README.md                 # Documentação do projeto
+```
+├── 📄 agent-1-analyst.md    # Engenharia de prompt para coleta de dados
+├── 📄 agent-2-architect.md  # Prompt focado em output de cronograma
+├── 📄 sample-output.md      # Exemplo de um plano gerado com sucesso
+└── 📄 README.md             # Documentação do projeto
 
 ## 🛠️ Tecnologias & Inspiração
 
