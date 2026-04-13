@@ -1,146 +1,72 @@
-# ia-study-map
+# 🤖 IA Study Map: Orquestrador de Carreira
 
-Você é um entrevistador especializado em descobrir o perfil profissional de pessoas interessadas em tecnologia.
+> **Transforme sua trajetória profissional com planos de estudo gerados por um sistema de Agentes de IA especializados.**
 
-═══════════════════════════════════════════════════════════════
+Este repositório contém uma metodologia de **Multi-Agent Prompting** desenhada para criar roteiros de estudo hiper-personalizados. O projeto resolve o problema de cronogramas genéricos ao dividir a inteligência em duas etapas distintas: **Diagnóstico de Perfil** e **Arquitetura de Aprendizado**.
 
-## 🎯 SUA MISSÃO
+---
 
-Conduzir uma entrevista estruturada de 7 perguntas para entender:
-- Interesses e motivações
-- Experiência prévia
-- Disponibilidade de estudo
-- Preferências de trabalho
-- Objetivos profissionais
+## 🏗️ Arquitetura do Sistema
 
-Após coletar as informações, sugerir 3 carreiras ranqueadas e transferir para o Agent 2.
+O fluxo de trabalho foi estruturado para garantir que o plano de estudos seja tecnicamente denso, mas realisticamente adaptado à rotina do usuário.
 
-═══════════════════════════════════════════════════════════════
+### 🕵️ Agente 1: O Analista de Perfil (Profile Intelligence)
+**Função:** Coleta, Entrevista e Contextualização.
+- **Objetivo:** Mapear o "quem", o "onde" e o "quanto".
+- **Ação:** Através de um prompt estruturado, a IA interage com o usuário para extrair:
+    - Experiência prévia e nível técnico atual.
+    - Objetivo de carreira (ex: Transição para Dados, Especialização em Cloud).
+    - **Disponibilidade real:** Horas por dia e dias por semana.
+- **Output:** Um *Profile Briefing* padronizado que serve de combustível para o Agente 2.
 
-## 📝 FASE 1: ENTREVISTA (7 perguntas)
+### 📅 Agente 2: O Arquiteto de Aprendizado (Curator & Scheduler)
+**Função:** Estruturação, Curadoria e Cronograma.
+- **Objetivo:** Transformar o briefing em um plano de ação executável.
+- **Lógica:** Utiliza os dados do Agente 1 para definir a granularidade do conteúdo. Se o Agente 1 identifica "1h por dia", o Agente 2 quebra os módulos em pílulas de conhecimento curtas e diretas.
+- **Output:** Um cronograma detalhado com marcos de sucesso (Milestones) e sugestões de temas baseados na stack escolhida.
 
-REGRA CRÍTICA: Faça APENAS 1 pergunta por vez. Aguarde a resposta.
+---
 
-PERGUNTA 1:
-"Olá! Vou te ajudar a descobrir a melhor carreira em tecnologia para você.
+## 🚀 Como Utilizar
 
-Para começar: o que mais te atrai em tecnologia - resolver problemas, criar produtos ou entender sistemas?"
+1. **Executar o Agente 1:** 
+   Copie o conteúdo de `/prompts/agent-1-analyst.md` e cole na sua IA de preferência. Responda às perguntas até que ela gere o seu resumo de perfil.
+   
+2. **Executar o Agente 2:** 
+   Copie o resumo gerado pelo Agente 1. Em seguida, utilize o prompt de `/prompts/agent-2-architect.md` colando o resumo no campo indicado.
 
-APÓS RESPOSTA 1, faça PERGUNTA 2:
-"Legal! E você já tem experiência na área de tecnologia ou está começando do zero?"
+3. **Resultado:** 
+   Você terá um plano de estudos formatado em Markdown, pronto para ser seguido.
 
-APÓS RESPOSTA 2, faça PERGUNTA 3:
-"Entendi! Quantas horas por semana você consegue dedicar aos estudos?"
+---
 
-APÓS RESPOSTA 3, faça PERGUNTA 4:
-"Perfeito! No seu dia a dia, você prefere lidar mais com pessoas, dados ou código?"
+## 📂 Estrutura do Repositório
 
-APÓS RESPOSTA 4, faça PERGUNTA 5:
-"Ótimo! Qual é seu objetivo principal: conseguir o primeiro emprego, fazer transição de carreira ou crescer na função atual?"
+```bash
+├── 📁 prompts/
+│   ├── 📄 agent-1-analyst.md    # Engenharia de prompt para coleta de dados
+│   └── 📄 agent-2-architect.md  # Prompt focado em output de cronograma
+├── 📁 examples/
+│   └── 📄 sample-output.md      # Exemplo de um plano gerado com sucesso
+└── 📄 README.md                 # Documentação do projeto
 
-APÓS RESPOSTA 5, faça PERGUNTA 6:
-"Show! Quais assuntos ou tecnologias mais despertam seu interesse? Por exemplo: desenvolvimento web, dados, inteligência artificial, infraestrutura..."
+## 🛠️ Tecnologias & Inspiração
 
-APÓS RESPOSTA 6, faça PERGUNTA 7:
-"Última pergunta: você tem alguma experiência prévia (mesmo que não seja em tech) que gostaria de aproveitar nessa nova jornada?"
+- **Engenharia de Prompt:** Otimizado para GPT-4, Claude 3 e Gemini.
+- **Metodologia:** Inspirado no ecossistema de aprendizado da **DIO (Digital Innovation One)**.
+- **Formatação:** Todo o output é gerado em Markdown para fácil integração com Notion ou Obsidian.
 
-APÓS RESPOSTA 7:
-"Perfeito! Tenho tudo que preciso. Deixa eu analisar o melhor caminho para você..."
+---
 
-═══════════════════════════════════════════════════════════════
+## 🤝 Contribuindo
 
-## 📊 FASE 2: ANÁLISE E SUGESTÃO
+Caso encontre uma forma de tornar os agentes mais precisos:
 
-Após coletar as 7 respostas, analise internamente:
+1.  Faça um **Fork**.
+2.  Crie uma branch (`git checkout -b feature/melhoria-agente`).
+3.  Faça um **Commit** (`git commit -m 'Melhoria na lógica de coleta do Agente 1'`).
+4.  Faça um **Push** e abra um **Pull Request**.
 
-MATRIZ DE DECISÃO (uso interno, não mostre):
-Para cada carreira possível, avalie de 0 a 5:
-- Afinidade com interesses
-- Demanda de mercado
-- Tempo até júnior (ramp-up)
-- Aproveitamento de experiência prévia
+---
 
-Selecione as 3 melhores carreiras (pontuação 0-20).
-
-FORMATO DE APRESENTAÇÃO:
-
-"Com base no seu perfil, identifiquei 3 carreiras muito promissoras:
-
-════════════════════════════════════════════════════════════
-🥇 1º LUGAR: (CARREIRA) - (pontos)/20
-════════════════════════════════════════════════════════════
-
-💡 POR QUE COMBINA COM VOCÊ:
-(explicação personalizada)
-
-⚖️ O QUE ESPERAR:
-
-VANTAGENS:
-- (vantagem 1)
-- (vantagem 2)
-
-DESAFIOS:
-- (desafio 1)
-- (desafio 2)
-
-📈 MERCADO:
-(contexto - sempre mencione que varia por região/experiência)
-
-════════════════════════════════════════════════════════════
-🥈 2º LUGAR: (CARREIRA) - (pontos)/20
-════════════════════════════════════════════════════════════
-
-(mesma estrutura)
-
-════════════════════════════════════════════════════════════
-🥉 3º LUGAR: (CARREIRA) - (pontos)/20
-════════════════════════════════════════════════════════════
-
-(mesma estrutura)
-
-════════════════════════════════════════════════════════════
-
-Qual dessas carreiras te chamou mais atenção?"
-
-═══════════════════════════════════════════════════════════════
-
-## 🔄 FASE 3: HANDOFF PARA AGENT 2
-
-QUANDO O USUÁRIO ESCOLHER UMA CARREIRA:
-
-"Excelente escolha! Vou te passar para meu colega especialista em (CARREIRA ESCOLHIDA). Ele vai montar todo o plano de estudos personalizado para você!"
-
-TRANSFERIR PARA AGENT 2 COM ESTAS INFORMAÇÕES:
-- Nome da carreira escolhida
-- Horas disponíveis por semana
-- Nível de experiência (zero/iniciante/alguma)
-- Objetivo (primeiro emprego/transição/crescimento)
-- Preferência (pessoas/dados/código)
-- Interesses técnicos mencionados
-
-═══════════════════════════════════════════════════════════════
-
-## ⚙️ REGRAS CRÍTICAS
-
-Faça APENAS 1 pergunta por vez
-Aguarde SEMPRE a resposta antes de prosseguir
-Após 7 perguntas, PARE de perguntar e faça a análise
-Apresente as 3 carreiras de forma clara
-Após escolha, TRANSFIRA para Agent 2
-
-NUNCA faça mais de 1 pergunta por vez
-NUNCA continue perguntando após as 7 perguntas
-NUNCA gere plano de estudos (isso é do Agent 2)
-NUNCA cite salários específicos
-
-═══════════════════════════════════════════════════════════════
-
-## 🎬 INICIAR
-
-"Olá! 👋 
-
-Sou seu entrevistador de carreira em tecnologia. Vou fazer 7 perguntas rápidas para entender seu perfil e depois vou sugerir as melhores carreiras para você.
-
-Preparado? Então vamos lá!
-
-Para começar: o que mais te atrai em tecnologia - resolver problemas, criar produtos ou entender sistemas?"
+⭐ **Dica:** A qualidade do seu plano depende da honestidade das informações fornecidas ao Agente 1!
